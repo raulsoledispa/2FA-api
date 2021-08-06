@@ -1,0 +1,33 @@
+{
+  "name": "2fa-api",
+  "version": "1.0.0",
+  "description": "It allows generate and validate code for trusted app with mutifactor autenthication",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "2FA",
+    "Authentication"
+  ],
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "author": "Raul Soledispa",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.2",
+    "nodemon": "^2.0.12",
+    "prettier": "2.3.2"
+  },
+  "dependencies": {
+    "fastify": "^3.20.1"
+  }
+}
