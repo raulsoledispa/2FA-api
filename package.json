@@ -31,6 +31,7 @@
   "dependencies": {
     "fastify": "^3.20.1",
     "fastify-sequelize": "^1.0.4",
-    "fastify-swagger": "^4.8.4"
+    "fastify-swagger": "^4.8.4",
+    "speakeasy": "^2.0.0"
   }
 }

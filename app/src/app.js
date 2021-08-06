@@ -1,4 +1,3 @@
-'use strict';
 import { fastify } from 'fastify';
 import fastifySwagger from 'fastify-swagger';
 import route from './controller.js';
