@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  title: 2FA-api
+  version: '1.0'
+  summary: It allows management multi factor authentication for user.
+  description: ''
+  contact:
+    name: Raul Soledispa
+    email: soledispa.raul@gmail.com
+servers:
+  - url: 'http://localhost:3000'
+    description: local
+  - url: 'https://herouku.com'
+    description: production
+paths:
+  /2FA/api/generate:
+    post:
+      summary: Generate Code
+      operationId: generate
+      description: Generate code to user.
+      parameters: []
+      responses:
+        '200':
+          $ref: '#/components/responses/Response'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Fields to generate code to user.
+    parameters: []
+  '/2FA/api/{userId}/verify':
+    post:
+      summary: Verify Code
+      operationId: verify
+      responses:
+        '200':
+          description: OK
+          headers: {}
+      description: Verify code generated to users.
+    parameters:
+      - schema:
+          type: string
+        name: userId
+        in: path
+        required: true
+components:
+  schemas:
+    Code:
+      title: Code
+      type: object
+      properties:
+        code:
+          type: string
+        expiryTme:
+          type: string
+      required:
+        - code
+        - expiryTme
+    ApiResponse:
+      title: ApiResponse
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/Code'
+      required:
+        - code
+        - message
+        - data
+    User:
+      title: User
+      type: object
+      description: User identifier Ex. email
+      properties:
+        userId:
+          type: string
+        characteristics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Characteristic'
+      required:
+        - userId
+    Characteristic:
+      title: Characteristic
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      required:
+        - key
+        - value
+  responses:
+    Response:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiResponse'
+        application/xml:
+          schema:
+            type: object
+            properties: {}
