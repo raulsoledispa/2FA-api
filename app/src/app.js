@@ -1,25 +1,20 @@
 import { fastify } from 'fastify';
-import fastifySwagger from 'fastify-swagger';
-import route from './controller.js';
-const app = fastify({ logger: true });
+import autoload from 'fastify-autoload';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
-app.register(fastifySwagger, {
-  mode: 'static',
-  specification: {
-    path: './app/src/docs/2FA.yaml',
-  },
-  exposeRoute: true,
-});
+export default async function build() {
+  const filename = fileURLToPath(import.meta.url);
+  const directory = dirname(filename);
 
-app.register(route);
+  const app = fastify({ logger: true });
+  app.register(autoload, {
+    dir: join(directory, 'plugins'),
+  });
 
-const start = async () => {
-  try {
-    await app.listen(3000, '0.0.0.0');
-  } catch (error) {
-    app.log.error(error);
-    process.exit(1);
-  }
-};
+  app.register(autoload, {
+    dir: join(directory, 'passcode'),
+  });
 
-start();
+  return app;
+}

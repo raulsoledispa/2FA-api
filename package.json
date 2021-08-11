@@ -5,8 +5,11 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start:dev": "nodemon app/src/app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "nodemon app/src/server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fix": "prettier --write --ignore-unknown .",
+    "lint": "eslint --ext .js app/src/",
+    "lint:fix": "eslint --ext .js app/src/ --fix"
   },
   "keywords": [
     "2FA",
@@ -30,8 +33,12 @@
   },
   "dependencies": {
     "fastify": "^3.20.1",
+    "fastify-autoload": "^3.8.0",
+    "fastify-plugin": "^0.1.1",
     "fastify-sequelize": "^1.0.4",
     "fastify-swagger": "^4.8.4",
-    "speakeasy": "^2.0.0"
+    "rambda": "^6.9.0",
+    "speakeasy": "^2.0.0",
+    "sqlite3": "^4.2.0"
   }
 }
