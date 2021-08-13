@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../db/tokens.db"
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model Token {
+    id        Int      @default(autoincrement()) @id
+    createdAt DateTime @default(now())
+    email     String
+    token     Int
+}
