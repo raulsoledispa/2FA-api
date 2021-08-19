@@ -16,7 +16,7 @@ paths:
   /2FA/api/generate:
     post:
       summary: Generate Code
-      operationId: generate
+      operationId: passcodeGenerator
       description: Generate code to user.
       parameters: []
       responses:
@@ -33,7 +33,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
-        description: Fields to generate code to user.
+        description: Fields to passcodeGenerator code to user.
     parameters: []
   '/2FA/api/{userId}/verify':
     post:
