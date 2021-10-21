@@ -5,7 +5,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start:dev": "nodemon app/src/server",
+    "start:dev": "nodemon --trace-warnings app/src/server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "fix": "prettier --write --ignore-unknown .",
     "lint": "eslint --ext .js app/src/",
@@ -33,15 +33,20 @@
     "lint-staged": "^11.1.2",
     "nodemon": "^2.0.12",
     "prettier": "2.3.2",
-    "prisma": "^2.29.0"
+    "prisma": "^2.30.3"
   },
   "dependencies": {
-    "@prisma/client": "^2.29.0",
+    "@prisma/client": "^2.30.3",
     "fastify": "^3.20.1",
     "fastify-autoload": "^3.8.0",
     "fastify-plugin": "^0.2.2",
     "fastify-swagger": "^4.8.4",
-    "rambda": "^6.9.0",
+    "pino-pretty": "^7.1.0",
+    "ramda": "^0.27.1",
+    "rxjs": "^6.6.7",
     "speakeasy": "^2.0.0"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }

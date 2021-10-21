@@ -1,8 +1,11 @@
 import speakeasy from 'speakeasy';
 
-function generate() {
-  const secret = speakeasy.generateSecret({ length: 20 });
-  this.log.info('Token generated');
+async function getSecret() {
+  return speakeasy.generateSecret({ length: 20 });
+}
+
+async function generate() {
+  const secret = await getSecret();
   return speakeasy.totp({
     secret: secret.base32,
     encoding: 'base32',
@@ -10,6 +13,7 @@ function generate() {
 }
 
 function verify(code) {
+  console.log(code);
   return true;
 }
 
