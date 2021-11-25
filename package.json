@@ -41,7 +41,7 @@
     "fastify-autoload": "^3.8.0",
     "fastify-plugin": "^0.2.2",
     "fastify-swagger": "^4.8.4",
-    "pino-pretty": "^7.1.0",
+    "pino-pretty": "^7.2.0",
     "ramda": "^0.27.1",
     "rxjs": "^6.6.7",
     "speakeasy": "^2.0.0"
