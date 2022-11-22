@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@prisma/client": "^2.30.3",
-    "fastify": "^3.20.1",
+    "fastify": "^3.29.4",
     "fastify-autoload": "^3.8.0",
     "fastify-plugin": "^0.2.2",
     "fastify-swagger": "^4.8.4",
