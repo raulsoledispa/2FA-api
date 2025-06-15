@@ -40,7 +40,7 @@
     "fastify": "^3.20.1",
     "fastify-autoload": "^3.8.0",
     "fastify-plugin": "^0.2.2",
-    "fastify-swagger": "^4.8.4",
+    "fastify-swagger": "^5.2.0",
     "pino-pretty": "^7.1.0",
     "ramda": "^0.27.1",
     "rxjs": "^6.6.7",
